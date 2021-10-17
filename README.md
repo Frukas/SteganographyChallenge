@@ -1,6 +1,7 @@
 # SteganographyChallenge
 
-Resolução do desafio da criação de uma REST API que consiste em:
+Resolução do desafio da criação de uma REST API que recebe uma imagem bmp, insere uma mensagem secreta nos bits da imagem, e retorna a mensagem secreta escrita na imagem.
+O desafio é separado em 4 chamadas:
 
 /upload: Uma requisição POST que recebe um multipart/form-data com uma
 imagem bitmap e retorna o nome do arquivo armazenado em um diretório
