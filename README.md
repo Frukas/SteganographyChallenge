@@ -16,3 +16,20 @@ acessada e retorna o arquivo para download.
 
 ● /decode-message-from-image: Uma requisição GET que recebe na query o nome
 da imagem a ser decodificada e retorna a mensagem escondida na imagem.
+
+Lista de curl:
+Favor alterar onde está descrito "(Inserir)"
+
+/upload:
+curl --location --request POST localhost:8080/post --form newFile=@"C:/imagens/(Inserir).bmp"
+
+/write-message-on-image:
+curl -i -X POST -H "Content-Type: application/json" -d  "{\"Path\":\"upload-(Inserir).bmp\",\"Message\":\"(Inserir)\"}" http://localhost:8080/write-message-on-image
+
+/get-image:	
+curl --location --request GET localhost:8080/get-image?FileName=Modified-(Inserir).bmp -o Modified-(Inserir).bmp
+
+/decode-message-from-image:
+curl --location --request GET localhost:8080/decode-message-from-image?FileName=Modified-(Inserir).bmp
+
+
