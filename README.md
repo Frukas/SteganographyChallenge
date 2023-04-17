@@ -34,6 +34,7 @@ curl --location --request GET localhost:8080/get-image?FileName=Modified-(Inseri
 curl --location --request GET localhost:8080/decode-message-from-image?FileName=Modified-(Inserir).bmp
 
 _______________________________________________________________________________________________________________
+#English description
 
 Resolution of the challenge of creating a REST API that receives a bmp image, inserts a secret message in the bits of the image, and returns the secret message written in the image. The challenge is divided into 4 calls:
 
