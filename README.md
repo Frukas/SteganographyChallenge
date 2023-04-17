@@ -33,4 +33,27 @@ curl --location --request GET localhost:8080/get-image?FileName=Modified-(Inseri
 /decode-message-from-image:
 curl --location --request GET localhost:8080/decode-message-from-image?FileName=Modified-(Inserir).bmp
 
+_______________________________________________________________________________________________________________
+
+Resolution of the challenge of creating a REST API that receives a bmp image, inserts a secret message in the bits of the image, and returns the secret message written in the image. The challenge is divided into 4 calls:
+
+/upload: A POST request that receives a multipart/form-data with a bitmap image and returns the name of the file stored in a temporary directory on the server.
+
+/write-message-on-image: A POST request that receives an application/json with the path of the image (response from /upload), applies a steganography algorithm (described below) returning a JSON informing the name of the new file.
+
+/get-image: A GET request that receives in the query the name of the image to be accessed and returns the file for download.
+
+/decode-message-from-image: A GET request that receives in the query the name of the image to be decoded and returns the hidden message in the image.
+
+Curl list: Please replace "(Insert)" where described.
+
+/upload: curl --location --request POST localhost:8080/post --form newFile=@"C:/images/(Insert).bmp"
+
+/write-message-on-image: curl -i -X POST -H "Content-Type: application/json" -d "{"Path":"upload-(Insert).bmp","Message":"(Insert)"}" http://localhost:8080/write-message-on-image
+
+/get-image: curl --location --request GET localhost:8080/get-image?FileName=Modified-(Insert).bmp -o Modified-(Insert).bmp
+
+/decode-message-from-image: curl --location --request GET localhost:8080/decode-message-from-image?FileName=Modified-(Insert).bmp
+
+
 
